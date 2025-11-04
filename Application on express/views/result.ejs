@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Submission Received</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="result-content">
+      <div class="result-header">
+        <h1>✓ Thank You, <%= data.name %>!</h1>
+        <p style="margin: 8px 0 0 0;">Your message has been received successfully.</p>
+      </div>
+
+      <div class="result-item">
+        <strong>📧 Email</strong>
+        <p><%= data.email %></p>
+      </div>
+
+      <div>
+        <strong style="color: var(--gray-700); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">💬 Your Message</strong>
+        <div class="message"><%= data.message %></div>
+      </div>
+
+      <% if (data.avatar) { %>
+        <div class="avatar-section">
+          <h3>🖼️ Profile Picture</h3>
+          <img src="/<%= data.avatar %>" alt="avatar" class="avatar">
+        </div>
+      <% } else { %>
+        <p class="no-upload">No profile picture was uploaded.</p>
+      <% } %>
+
+      <div class="action-link">
+        <a href="/">← Submit Another Response</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>

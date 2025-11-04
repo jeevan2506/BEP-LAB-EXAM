@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Submit Your Information</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Get in Touch</h1>
+    <p class="subtitle">Share your details and message with us</p>
+
+    <form action="/submit" method="post" enctype="multipart/form-data" novalidate>
+      <div class="form-group">
+        <label for="name">👤 Full Name</label>
+        <input id="name" name="name" type="text" placeholder="John Doe" value="<%= data.name ? data.name : '' %>" required>
+        <div class="error"><%= errors.name ? errors.name.msg : '' %></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">📧 Email Address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" value="<%= data.email ? data.email : '' %>" required>
+        <div class="error"><%= errors.email ? errors.email.msg : '' %></div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">💬 Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required><%= data.message ? data.message : '' %></textarea>
+        <div class="error"><%= errors.message ? errors.message.msg : '' %></div>
+      </div>
+
+      <div class="form-group">
+        <label for="avatar">🖼️ Profile Picture <span style="color: var(--gray-600); font-weight: 400; text-transform: none;">(Optional)</span></label>
+        <input id="avatar" name="avatar" type="file" accept="image/*">
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
